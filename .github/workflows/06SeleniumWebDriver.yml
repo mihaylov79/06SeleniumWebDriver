@@ -35,7 +35,7 @@ jobs:
       env:
         CHROMEWEBDRIVER: /usr/bin/google-chrome
       run: |
-        echo "Runnig Project1 Tests"
+        echo "Running Project1 Tests"
         dotnet test TestProject1/TestProject1.csproj --verbosity normal
     - name: Test Project2
       env:
