@@ -18,15 +18,24 @@ pipeline{
         }
 
         stage("Installing Dependancies"){
-            sh 'dotnet restore'
+            steps{
+                sh 'dotnet restore'
+            }
+           
         }
 
         stage("Building App"){
-            sh 'dotnet build --configuration release'
+            steps{
+                sh 'dotnet build --configuration release'
+            }
+            
         }
 
         stage("Testing TestProject1")
-            sh 'dotnet test TestProject1/TestProject.csproj'
+        steps{
+           sh 'dotnet test TestProject1/TestProject.csproj' 
+        }
+
     }
     post{
         always{
