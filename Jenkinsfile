@@ -52,7 +52,7 @@ pipeline{
     post{
         always{
             echo "===== Summary (manual) ====="
-        sh 'find . -name "TestResults.trx" -exec cat {} \\;'
+            junit '**/TestResults.trx'
         }
         success{
             echo "========pipeline executed successfully ========"
