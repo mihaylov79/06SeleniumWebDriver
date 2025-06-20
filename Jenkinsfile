@@ -31,10 +31,12 @@ pipeline{
             
         }
 
-        stage("Testing TestProject1")
-        steps{
-           sh 'dotnet test TestProject1/TestProject.csproj' 
+        stage("Testing TestProject1"){
+            steps{
+                sh 'dotnet test TestProject1/TestProject.csproj' 
+            }
         }
+
 
     }
     post{
