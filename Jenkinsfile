@@ -38,10 +38,10 @@ pipeline{
             
                 
                 sh 'echo Testing TestProject2'
-                sh 'dotnet test TestProject2/TestProject2.csproj --no-build || true' 
+                sh 'dotnet test TestProject2/TestProject2.csproj --no-build --logger:"trx;LogFileName=TestResults.trx" || true' 
             
                 sh 'echo Testing TestProject3'
-                sh 'dotnet test TestProject3/TestProject3.csproj --no-build || true' 
+                sh 'dotnet test TestProject3/TestProject3.csproj --no-build --logger:"trx;LogFileName=TestResults.trx" || true' 
 
             
             }
@@ -51,7 +51,8 @@ pipeline{
     }
     post{
         always{
-            echo "========always========"
+            echo "===== Summary (manual) ====="
+        sh 'find . -name "TestResults.trx" -exec cat {} \\;'
         }
         success{
             echo "========pipeline executed successfully ========"
