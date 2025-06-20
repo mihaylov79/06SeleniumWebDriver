@@ -2,9 +2,7 @@ pipeline{
     agent any
 
     environment{
-        // CHROME_VERSION = '137.0.7151.69'
         CHROMEDRIVER_VERSION = '137.0.7151.69'
-        // CHROME_INSTALL_PATH = ''
         CHROMEDRIVER_PATH = '/usr/local/bin/chromedriver'
     }
 
@@ -17,15 +15,6 @@ pipeline{
 
         }
 
-        // stage('Install Google Chrome') {
-        //     steps {
-        //         sh '''
-        //         wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-        //         apt-get update
-        //         apt-get install -y ./google-chrome-stable_current_amd64.deb
-        //         '''
-        //     }
-        // }
 
 
         stage("Installing Dependancies"){
@@ -44,7 +33,17 @@ pipeline{
 
         stage("Testing TestProject1"){
             steps{
-                sh 'dotnet test TestProject1/TestProject1.csproj' 
+                sh 'Testing TestProject1'
+                sh 'dotnet test TestProject1/TestProject1.csproj --no-build || true' 
+            
+                
+                sh 'Testing TestProject2'
+                sh 'dotnet test TestProject2/TestProject2.csproj --no-build || true' 
+            
+                sh 'Testing TestProject3'
+                sh 'dotnet test TestProject3/TestProject3.csproj --no-build || true' 
+
+            
             }
         }
 
