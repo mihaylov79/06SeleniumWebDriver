@@ -51,7 +51,8 @@ pipeline{
     }
     post{
         always{
-            echo "===== Summary (manual) ====="
+            echo "===== always ====="
+            archieveArtifacts artfacts: '**/TestResults.trx', allowEmptyArchive: true
             junit '**/TestResults.trx'
         }
         success{
