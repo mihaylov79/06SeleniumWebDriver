@@ -33,14 +33,14 @@ pipeline{
 
         stage("Testing TestProject1"){
             steps{
-                sh 'Testing TestProject1'
+                sh 'echo Testing TestProject1'
                 sh 'dotnet test TestProject1/TestProject1.csproj --no-build || true' 
             
                 
-                sh 'Testing TestProject2'
+                sh 'echo Testing TestProject2'
                 sh 'dotnet test TestProject2/TestProject2.csproj --no-build || true' 
             
-                sh 'Testing TestProject3'
+                sh 'echo Testing TestProject3'
                 sh 'dotnet test TestProject3/TestProject3.csproj --no-build || true' 
 
             
