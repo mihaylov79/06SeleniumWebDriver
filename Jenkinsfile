@@ -33,7 +33,7 @@ pipeline{
 
         stage("Testing TestProject1"){
             steps{
-                sh 'dotnet test TestProject1/TestProject.csproj' 
+                sh 'dotnet test TestProject1/TestProject1.csproj' 
             }
         }
 
